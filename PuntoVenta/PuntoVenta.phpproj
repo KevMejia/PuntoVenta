@@ -21,26 +21,29 @@
     <Folder Include="fonts\" />
     <Folder Include="js\" />
     <Folder Include="utilerias\" />
-    <Folder Include="utilerias\Clientes\" />
-    <Folder Include="utilerias\Proveedores\" />
-    <Folder Include="utilerias\Usuario\" />
+    <Folder Include="Clientes\" />
+    <Folder Include="Proveedores\" />
+    <Folder Include="Usuario\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\EliminaCliente.php" />
     <Compile Include="index.php" />
-    <Compile Include="utilerias\Clientes\UtileriasClientes.php" />
+    <Compile Include="Clientes\index.php" />
+    <Compile Include="Clientes\UtileriasClientes.php" />
     <Compile Include="utilerias\conexion.php" />
     <Compile Include="utilerias\encabezado.php" />
     <Compile Include="utilerias\EnviarCorreo.php" />
     <Compile Include="utilerias\finalizar_pedido.php" />
-    <Compile Include="utilerias\Clientes\RegistrarCliente.php" />
-    <Compile Include="utilerias\Usuario\CierraSesion.php" />
-    <Compile Include="utilerias\Usuario\IniciaSesion.php" />
+    <Compile Include="Clientes\RegistrarCliente.php" />
+    <Compile Include="Usuario\CierraSesion.php" />
+    <Compile Include="Usuario\IniciaSesion.php" />
     <Compile Include="utilerias\piedepagina.php" />
-    <Compile Include="utilerias\Usuario\RegistrarUsuario.php" />
+    <Compile Include="Usuario\RegistrarUsuario.php" />
     <Compile Include="utilerias\Utilerias.php" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\PuntoVenta.css" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

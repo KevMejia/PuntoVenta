@@ -1,6 +1,7 @@
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/PuntoVenta.js"></script>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/PuntoVenta.js"></script>
 
 <div class="modal fade" id="ModalRegistroUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -22,7 +23,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="RegistrarUsuario();">Registrar</button>
+                <button type="button" class="btn btn-primary" onclick="RegistrarUsuario();">
+                    <span class="glyphicon glyphicon-floppy-disk"></span> Registrar
+                </button>
             </div>
         </div>
     </div>
@@ -49,7 +52,10 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="IniciaSesion();">Iniciar Sesión</button>
+                <button type="button" class="btn btn-primary" onclick="IniciaSesion();">
+                    <span class="glyphicon glyphicon-user"></span> Iniciar Sesión
+
+                </button>
             </div>
 
         </div>

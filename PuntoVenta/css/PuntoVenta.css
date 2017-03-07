@@ -1,0 +1,16 @@
+#Contenido {
+    padding: 20px;
+}
+
+.LinkRegistra:hover {
+    cursor: pointer;
+}
+
+.LinkRegistra {
+    font-weight: 700;
+    color: #ccc;
+}
+
+.iconoElimina:hover {
+    cursor: pointer;
+}

@@ -5,7 +5,7 @@ function ObtenMaximoCliente($PDO){
     foreach ($PDO->query($sql) as $fila) {
         $Max = $fila[0];        
     }    
-    return $Max;
+    return $Max++;
 }
 
 function ExisteCliente($PDO, $user){

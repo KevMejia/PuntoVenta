@@ -13,19 +13,10 @@ if (!isset($_SESSION['usuario']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Punto de Venta Isima</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/PuntoVenta.css" rel="stylesheet">
 </head>
 <body>
-    <style>
-        .LinkRegistra:hover {
-            cursor: pointer;
-        }
-
-        .LinkRegistra {
-            font-weight: 700;
-            color: #ccc;
-        }
-    </style>
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
@@ -35,15 +26,16 @@ if (!isset($_SESSION['usuario']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Punto de Venta Isima</a>
+                <a class="navbar-brand" href="/">Punto de Venta Isima</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <?php if(($_SESSION["usuario"]) != ""){ ?>
 
-                    <li><a href="#about">Productos</a></li>
-                    <li><a href="#contact">Proveedores</a></li>
-                    <li><a href="#contact">Registrar una venta</a></li>
+                    <li><a href="/Productos">Productos</a></li>
+                    <li><a href="/Proveedores">Proveedores</a></li>
+                    <li><a href="/Clientes">Clientes</a></li>
+                    <li><a href="/RegistraVenta">Registrar una venta</a></li>
                     <?php } ?>
 
 
@@ -68,3 +60,4 @@ if (!isset($_SESSION['usuario']))
             </div>
         </div>
     </nav>
+    <div class="container">
