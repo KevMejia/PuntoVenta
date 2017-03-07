@@ -3,9 +3,9 @@ function ObtenMaximoCliente($PDO){
     $sql = 'SELECT count(*) FROM clientes';
     $Max = 0;
     foreach ($PDO->query($sql) as $fila) {
-        $Max = $fila[0];        
+        $Max = $fila[0] + 1;        
     }    
-    return $Max++;
+    return $Max;
 }
 
 function ExisteCliente($PDO, $user){

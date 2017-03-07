@@ -11,6 +11,6 @@
     color: #ccc;
 }
 
-.iconoElimina:hover {
+.iconoElimina:hover, .iconoEliminaProveedor:hover {
     cursor: pointer;
 }

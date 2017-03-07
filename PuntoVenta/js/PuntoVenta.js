@@ -93,7 +93,7 @@ function RegistrarCliente() {
     var data = { cliente: nomCliente, mail: mailCliente };
 
     $.ajax({
-        url: "Clientes/RegistrarCliente.php",
+        url: "/Clientes/RegistrarCliente.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -120,7 +120,60 @@ $(".iconoElimina").on('click', function () {
     if (confirm("¿Desea eliminar al cliente " + usuario + "?")) {
         var data = { id: id };
         $.ajax({
-            url: "Clientes/EliminaCliente.php",
+            url: "/Clientes/EliminaCliente.php",
+            data: data,
+            type: "GET",
+            success: function (data) {
+                alert(data);
+                if (!data.includes("ERROR"))
+                    location.reload();
+            },
+            error: function () {
+                alert("No hay conexión con el servidor");
+            }
+        });
+    }
+});
+
+
+
+//
+// Proveedores
+//
+function RegistrarProveedor() {
+    var nomProveedor = $("#userProveedor").val();
+
+    if (nomProveedor.trim() == "") {
+        alert("El usuario no puede estar vacio");
+        return;
+    }
+
+    var data = { Proveedor: nomProveedor };
+
+    $.ajax({
+        url: "/Proveedores/RegistrarProveedor.php",
+        data: data,
+        type: "GET",
+        success: function (data) {
+            alert(data);
+            if (!data.includes("ERROR"))
+                location.reload();
+        },
+        error: function () {
+            alert("No hay conexión con el servidor");
+        }
+    });
+}
+
+$(".iconoEliminaProveedor").on('click', function () {
+    var id = $(this).closest("tr").find("td:eq(0)").text();
+    var usuario = $(this).closest("tr").find("td:eq(1)").text();
+
+
+    if (confirm("¿Desea eliminar al proveedor " + usuario + "?")) {
+        var data = { id: id };
+        $.ajax({
+            url: "/Proveedores/EliminaProveedor.php",
             data: data,
             type: "GET",
             success: function (data) {

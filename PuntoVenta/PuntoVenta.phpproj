@@ -30,6 +30,10 @@
     <Compile Include="index.php" />
     <Compile Include="Clientes\index.php" />
     <Compile Include="Clientes\UtileriasClientes.php" />
+    <Compile Include="Proveedores\EliminaProveedor.php" />
+    <Compile Include="Proveedores\index.php" />
+    <Compile Include="Proveedores\RegistrarProveedor.php" />
+    <Compile Include="Proveedores\UtileriasProveedores.php" />
     <Compile Include="utilerias\conexion.php" />
     <Compile Include="utilerias\encabezado.php" />
     <Compile Include="utilerias\EnviarCorreo.php" />

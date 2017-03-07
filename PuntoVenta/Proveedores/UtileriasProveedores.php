@@ -1,7 +1,6 @@
 <?php
-
-function ObtenMaximoUsuario($PDO){
-    $sql = 'SELECT count(*) FROM usuarios';
+function ObtenMaximoProveedor($PDO){
+    $sql = 'SELECT count(*) FROM Proveedores';
     $Max = 0;
     foreach ($PDO->query($sql) as $fila) {
         $Max = $fila[0] + 1;        
@@ -9,8 +8,8 @@ function ObtenMaximoUsuario($PDO){
     return $Max;
 }
 
-function ExisteUsuario($PDO, $user){
-    $sql = "SELECT count(*) FROM usuarios where UPPER(NombreUsuario)='".strtoupper($user)."'";
+function ExisteProveedor($PDO, $user){
+    $sql = "SELECT count(*) FROM Proveedores where UPPER(NombreProveedor)='".strtoupper($user)."'";
     $existe = false;
     foreach ($PDO->query($sql) as $fila) {
         $existe = $fila[0] > 0;        
@@ -18,13 +17,12 @@ function ExisteUsuario($PDO, $user){
     return $existe;
 }
 
-function ValidaUsuario($PDO, $user, $pass){
-    $sql = "SELECT count(*) FROM usuarios where UPPER(NombreUsuario)='".strtoupper($user)."' AND PASS='".$pass."'";
+function ValidaProveedor($PDO, $user, $pass){
+    $sql = "SELECT count(*) FROM Proveedores where UPPER(NombreProveedor)='".strtoupper($user)."'";
     $existe = false;
     foreach ($PDO->query($sql) as $fila) {
         $existe = $fila[0] > 0;        
     }    
     return $existe;
 }
-
 ?>
