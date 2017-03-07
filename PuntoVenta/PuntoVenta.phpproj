@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>PuntoVenta</Name>
+    <ProjectGuid>6b689507-7e7f-41c9-accb-05058c673f35</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>PuntoVenta</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="fonts\" />
+    <Folder Include="js\" />
+    <Folder Include="utilerias\" />
+    <Folder Include="utilerias\Clientes\" />
+    <Folder Include="utilerias\Proveedores\" />
+    <Folder Include="utilerias\Usuario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="index.php" />
+    <Compile Include="utilerias\Clientes\UtileriasClientes.php" />
+    <Compile Include="utilerias\conexion.php" />
+    <Compile Include="utilerias\encabezado.php" />
+    <Compile Include="utilerias\EnviarCorreo.php" />
+    <Compile Include="utilerias\finalizar_pedido.php" />
+    <Compile Include="utilerias\Clientes\RegistrarCliente.php" />
+    <Compile Include="utilerias\Usuario\CierraSesion.php" />
+    <Compile Include="utilerias\Usuario\IniciaSesion.php" />
+    <Compile Include="utilerias\piedepagina.php" />
+    <Compile Include="utilerias\Usuario\RegistrarUsuario.php" />
+    <Compile Include="utilerias\Utilerias.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\PuntoVenta.js" />
+  </ItemGroup>
+</Project>
