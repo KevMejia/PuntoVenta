@@ -35,7 +35,7 @@ if (!isset($_SESSION['usuario']))
                     <li><a href="/Inventario">Inventario</a></li>
                     <li><a href="/Proveedores">Proveedores</a></li>
                     <li><a href="/Clientes">Clientes</a></li>
-                    <li><a href="/RegistraVenta">Registrar una venta</a></li>
+                    <li><a href="/Ventas">Registrar una venta</a></li>
                     <?php } ?>
 
 

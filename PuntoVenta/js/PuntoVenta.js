@@ -247,3 +247,39 @@ $(".iconoEliminaProducto").on('click', function () {
     }
 });
 
+//
+// Ventas
+//
+function RegistraVenta() {
+    var idProducto = $("#idProducto").val();
+    var numProductos = $("#NumProductos").val();
+    var idCliente = $("#idCliente").val();
+
+    if (numProductos.trim() == "") {
+        alert("Se debe ingresar un número de productos");
+        return;
+    }
+
+    if (parseFloat(numProductos) <= 0) {
+        alert("El número de productos debe ser un numero positivo");
+        return;
+    }
+
+    var data = { idProducto: idProducto, NumProductos: numProductos, idCliente: idCliente };
+    $("#btnRegistra").click();
+
+    $.ajax({
+        url: "/Ventas/RegistrarVenta.php",
+        data: data,
+        type: "GET",
+        success: function (data) {
+            alert(data);
+            if (!data.includes("ERROR"))
+                location.reload();
+            $("#CierraVenta").click();
+        },
+        error: function () {
+            alert("No hay conexión con el servidor");
+        }
+    });
+}

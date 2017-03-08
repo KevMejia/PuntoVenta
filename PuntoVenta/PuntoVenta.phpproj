@@ -21,6 +21,8 @@
     <Folder Include="css\" />
     <Folder Include="fonts\" />
     <Folder Include="js\" />
+    <Folder Include="Imgs\" />
+    <Folder Include="Ventas\" />
     <Folder Include="utilerias\" />
     <Folder Include="Clientes\" />
     <Folder Include="Proveedores\" />
@@ -49,6 +51,9 @@
     <Compile Include="utilerias\piedepagina.php" />
     <Compile Include="Usuario\RegistrarUsuario.php" />
     <Compile Include="utilerias\Utilerias.php" />
+    <Compile Include="Ventas\index.php" />
+    <Compile Include="Ventas\RegistrarVenta.php" />
+    <Compile Include="Ventas\UtileriasVentas.php" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.min.css" />
@@ -58,6 +63,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Imgs\Cargando.gif" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\PuntoVenta.js" />
