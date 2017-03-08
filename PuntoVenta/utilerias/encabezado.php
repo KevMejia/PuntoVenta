@@ -5,13 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 if (!isset($_SESSION['usuario'])) 
     $_SESSION['usuario'] = "";
 ?>
-
+<?php header('Content-Type: text/html; charset=UTF-8'); ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/> 
     <title>Punto de Venta Isima</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/PuntoVenta.css" rel="stylesheet">

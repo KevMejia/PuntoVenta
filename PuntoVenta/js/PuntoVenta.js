@@ -272,6 +272,7 @@ function RegistraVenta() {
         url: "/Ventas/RegistrarVenta.php",
         data: data,
         type: "GET",
+        async: true,
         success: function (data) {
             alert(data);
             if (!data.includes("ERROR"))
@@ -280,6 +281,7 @@ function RegistraVenta() {
         },
         error: function () {
             alert("No hay conexión con el servidor");
+            $("#CierraVenta").click();
         }
     });
 }

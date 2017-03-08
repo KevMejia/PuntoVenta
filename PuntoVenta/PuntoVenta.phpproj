@@ -22,6 +22,7 @@
     <Folder Include="fonts\" />
     <Folder Include="js\" />
     <Folder Include="Imgs\" />
+    <Folder Include="utilerias\PHPMailer\" />
     <Folder Include="Ventas\" />
     <Folder Include="utilerias\" />
     <Folder Include="Clientes\" />
@@ -41,6 +42,8 @@
     <Compile Include="Proveedores\index.php" />
     <Compile Include="Proveedores\RegistrarProveedor.php" />
     <Compile Include="Proveedores\UtileriasProveedores.php" />
+    <Compile Include="utilerias\PHPMailer\class.phpmailer.php" />
+    <Compile Include="utilerias\PHPMailer\class.smtp.php" />
     <Compile Include="utilerias\conexion.php" />
     <Compile Include="utilerias\encabezado.php" />
     <Compile Include="utilerias\EnviarCorreo.php" />
@@ -48,6 +51,7 @@
     <Compile Include="Clientes\RegistrarCliente.php" />
     <Compile Include="Usuario\CierraSesion.php" />
     <Compile Include="Usuario\IniciaSesion.php" />
+    <Compile Include="utilerias\PHPMailer\PHPMailerAutoload.php" />
     <Compile Include="utilerias\piedepagina.php" />
     <Compile Include="Usuario\RegistrarUsuario.php" />
     <Compile Include="utilerias\Utilerias.php" />
