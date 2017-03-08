@@ -67,5 +67,6 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\PuntoVenta.js" />
+    <Content Include="PuntoVenta.sql" />
   </ItemGroup>
 </Project>
