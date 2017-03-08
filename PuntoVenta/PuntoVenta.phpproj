@@ -17,6 +17,7 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Inventario\" />
     <Folder Include="css\" />
     <Folder Include="fonts\" />
     <Folder Include="js\" />
@@ -26,6 +27,10 @@
     <Folder Include="Usuario\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inventario\EliminaProducto.php" />
+    <Compile Include="Inventario\index.php" />
+    <Compile Include="Inventario\RegistrarProducto.php" />
+    <Compile Include="Inventario\UtileriasProductos.php" />
     <Compile Include="Clientes\EliminaCliente.php" />
     <Compile Include="index.php" />
     <Compile Include="Clientes\index.php" />

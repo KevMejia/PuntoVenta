@@ -13,7 +13,7 @@ function RegistrarUsuario() {
     var data = { usuario: nomUsuario, pass: passUsuario };
 
     $.ajax({
-        url: "/utilerias/Usuario/RegistrarUsuario.php",
+        url: "/Usuario/RegistrarUsuario.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -35,7 +35,7 @@ function IniciaSesion() {
     var data = { usuario: nomUsuario, pass: passUsuario };
 
     $.ajax({
-        url: "/utilerias/Usuario/IniciaSesion.php",
+        url: "/Usuario/IniciaSesion.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -53,7 +53,7 @@ function IniciaSesion() {
 function CierraSesion() {
     if (confirm("¿De verdad desea cerrar sesión?")) {
         $.ajax({
-            url: "/utilerias/Usuario/CierraSesion.php",
+            url: "/Usuario/CierraSesion.php",
             type: "GET",
             success: function (data) {
                 if (data.includes("ERROR"))
@@ -98,7 +98,7 @@ function RegistrarCliente() {
         type: "GET",
         success: function (data) {
             alert(data);
-            if (!data.includes("ERROR")) 
+            if (!data.includes("ERROR"))
                 location.reload();
         },
         error: function () {
@@ -115,7 +115,7 @@ function EsCorreoValido(email) {
 $(".iconoElimina").on('click', function () {
     var id = $(this).closest("tr").find("td:eq(0)").text();
     var usuario = $(this).closest("tr").find("td:eq(1)").text();
-    
+
 
     if (confirm("¿Desea eliminar al cliente " + usuario + "?")) {
         var data = { id: id };
@@ -187,3 +187,63 @@ $(".iconoEliminaProveedor").on('click', function () {
         });
     }
 });
+
+
+//
+// Inventario
+//
+function RegistrarProducto() {
+    var nombreProducto = $("#nombreProducto").val();
+    var costo = $("#CostoProducto").val();
+    var nomProveedor = $("#ProveedorProducto").val();
+
+    if (nomProveedor.trim() == "" || nombreProducto.trim() == "" || costo.trim() == "") {
+        alert("El nombre del producto y el costo no pueden estar vacios");
+        return;
+    }
+
+    if (parseFloat(costo) <= 0) {
+        alert("El costo debe ser un numero positivo");
+        return;
+    }
+
+    var data = { Proveedor: nomProveedor, NombreProducto: nombreProducto, Costo: parseFloat(costo) };
+
+    $.ajax({
+        url: "/Inventario/RegistrarProducto.php",
+        data: data,
+        type: "GET",
+        success: function (data) {
+            alert(data);
+            if (!data.includes("ERROR"))
+                location.reload();
+        },
+        error: function () {
+            alert("No hay conexión con el servidor");
+        }
+    });
+}
+
+$(".iconoEliminaProducto").on('click', function () {
+    var id = $(this).closest("tr").find("td:eq(0)").text();
+    var producto = $(this).closest("tr").find("td:eq(1)").text();
+
+
+    if (confirm("¿Desea eliminar el producto " + producto + "?")) {
+        var data = { id: id };
+        $.ajax({
+            url: "/Inventario/EliminaProducto.php",
+            data: data,
+            type: "GET",
+            success: function (data) {
+                alert(data);
+                if (!data.includes("ERROR"))
+                    location.reload();
+            },
+            error: function () {
+                alert("No hay conexión con el servidor");
+            }
+        });
+    }
+});
+

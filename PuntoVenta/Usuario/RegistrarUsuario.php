@@ -2,8 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include("../conexion.php");
-include("../Utilerias.php");
+include("../utilerias/conexion.php");
+include("../utilerias/Utilerias.php");
 $usuario = trim($_REQUEST['usuario']);
 $pass = sha1($_REQUEST['pass']);
 

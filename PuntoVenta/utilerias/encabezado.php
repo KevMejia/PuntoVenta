@@ -32,7 +32,7 @@ if (!isset($_SESSION['usuario']))
                 <ul class="nav navbar-nav">
                     <?php if(($_SESSION["usuario"]) != ""){ ?>
 
-                    <li><a href="/Productos">Productos</a></li>
+                    <li><a href="/Inventario">Inventario</a></li>
                     <li><a href="/Proveedores">Proveedores</a></li>
                     <li><a href="/Clientes">Clientes</a></li>
                     <li><a href="/RegistraVenta">Registrar una venta</a></li>
