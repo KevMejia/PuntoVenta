@@ -5,10 +5,8 @@ if (session_status() == PHP_SESSION_NONE)
 if (!isset($_SESSION['usuario'])) 
     $_SESSION['usuario'] = "";
 
-if(!isset($_SESSION["root"])){
-    $url = dirname("../")."/"; 
-    $_SESSION["root"] = $url;
-}
+$url = dirname("../")."/"; 
+
 
 
 ?>
@@ -18,6 +16,8 @@ if(!isset($_SESSION["root"])){
     <title>Punto de Venta Isima</title>
     <link href=<?php echo $url; ?>css/bootstrap.min.css rel="stylesheet">
     <link href=<?php echo $url; ?>css/PuntoVenta.css rel="stylesheet">
+    <script src=<?php echo $url; ?>js/jquery.min.js></script>
+
     <script>
         var root = "<?php echo $url; ?>";
     </script>

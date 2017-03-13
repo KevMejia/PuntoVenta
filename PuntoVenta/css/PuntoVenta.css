@@ -15,3 +15,24 @@
 .iconoEliminaProducto:hover {
     cursor: pointer;
 }
+
+#Productos {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.iconoElimina {
+    float: right;
+    margin: -6%;
+    color: red;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+    .iconoElimina:hover {
+        cursor: pointer;
+    }
+
+#Productos {
+    margin-right:3px !important;
+}

@@ -251,19 +251,47 @@ $(".iconoEliminaProducto").on('click', function () {
 // Ventas
 //
 function RegistraVenta() {
-    var idProducto = $("#idProducto").val();
-    var numProductos = $("#NumProductos").val();
+    var idProducto = [];
+    var numProductos = [];
+    var error = false;
+
+    $(".idProducto").each(function(){
+        idProducto.push($(this).val());
+    });
+
+    var paso=true;
+     $(".NumProductos").each(function () {
+        var numProducto = $(this).val();
+        var MensajeError = "";
+
+        if (numProducto.trim() == "" || isNaN(parseFloat(numProducto))) {
+            idProducto = [];
+            numProductos = [];
+
+            MensajeError = "Se debe ingresar un número de productos";
+            error = true;
+
+        }
+
+        if (parseFloat(numProducto) <= 0) {
+            idProducto = [];
+            numProductos = [];
+            var msg ="El número de productos debe ser un numero positivo";
+            MensajeError += (MensajeError != "") ? MensajeError += "\n" + msg : MensajeError += msg;
+            error = true;
+        }
+        if (error) {
+            alert(MensajeError);
+            paso = false;
+            return false;
+        }
+        
+        numProductos.push(parseFloat(numProducto));
+    });
+
+    if (!paso) return;
+
     var idCliente = $("#idCliente").val();
-
-    if (numProductos.trim() == "") {
-        alert("Se debe ingresar un número de productos");
-        return;
-    }
-
-    if (parseFloat(numProductos) <= 0) {
-        alert("El número de productos debe ser un numero positivo");
-        return;
-    }
 
     var data = { idProducto: idProducto, NumProductos: numProductos, idCliente: idCliente };
     $("#btnRegistra").click();
@@ -284,4 +312,38 @@ function RegistraVenta() {
             $("#CierraVenta").click();
         }
     });
+}
+
+function AgregaProducto() {
+    
+    numProd++;
+    CompruebaProd();
+
+    if (numProd == 1) copia.appendTo("#Prods");
+    else {
+        $("#Productos").clone().appendTo("#Prods");
+        $("#Prods >#Productos").last().find(".NumProductos").val(0);
+    }
+}
+
+function EliminaProducto(prod) {
+    $(prod).closest("#Productos").remove();
+    numProd--
+    CompruebaProd();
+}
+
+function CompruebaProd(){
+    if (numProd >= 1) {
+        $("#lblProducto").show();
+        $("#btnRegistraVenta").prop("disabled", false);
+    }
+    else {
+        $("#lblProducto").hide();
+        $("#btnRegistraVenta").prop("disabled", true);
+    }
+
+}
+
+function CopiaInicial(){
+    return $("#Productos").clone();
 }

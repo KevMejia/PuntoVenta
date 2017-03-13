@@ -1,5 +1,4 @@
 </div>
-<script src=<?php echo $url; ?>js/jquery.min.js></script>
 <script src=<?php echo $url; ?>js/bootstrap.min.js></script>
 <script src=<?php echo $url; ?>js/PuntoVenta.js></script>
 

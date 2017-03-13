@@ -1,4 +1,6 @@
 <?php
+include "../utilerias/Utilerias.php";
+
 function ObtenMaximaVenta($PDO){
     $sql = 'SELECT count(*) FROM Ventas';
     $Max = 0;
@@ -9,12 +11,17 @@ function ObtenMaximaVenta($PDO){
 }
 
 function ObtenCostoProducto($PDO, $idProducto){
-    $sql = 'SELECT Costo FROM Inventario where idProducto='.$idProducto;
-    $costo = 0;
-    foreach ($PDO->query($sql) as $fila) {
-        $costo = $fila[0];        
-    }    
-    return $costo;
+    $costos= array();
+    for($cont=0; $cont < count($idProducto); $cont++){
+        $sql = 'SELECT Costo FROM Inventario where idProducto='.$idProducto[$cont];
+        $costo = 0;
+        foreach ($PDO->query($sql) as $fila) {
+            $costo = $fila[0];   
+            array_push($costos, $costo);
+        }    
+    }
+    
+    return $costos;
 }
 
 function EnviaCorreo($PDO, $idCliente, $costoProducto, $NumProductos, $idProducto){
@@ -26,11 +33,15 @@ function EnviaCorreo($PDO, $idCliente, $costoProducto, $NumProductos, $idProduct
         $correoCliente = $filaNombre[1]; 
     }    
 
-    $sqlNombreProducto = 'SELECT NombreProducto FROM Inventario where idProducto='.$idProducto;
-    $nombreProducto ="";
-    foreach ($PDO->query($sqlNombreProducto) as $filaProducto) {
-        $nombreProducto = $filaProducto[0];        
-    } 
+    $nombreProducto =array();
+    for($cont=0; $cont < count($idProducto); $cont++){
+        $sqlNombreProducto = 'SELECT NombreProducto FROM Inventario where idProducto='.$idProducto[$cont];
+        
+        foreach ($PDO->query($sqlNombreProducto) as $filaProducto) {
+            array_push($nombreProducto, $filaProducto[0]);        
+        } 
+    }
+    $costoTotal=0;
 
     
     $cuerpoMensaje = ' 
@@ -39,18 +50,46 @@ function EnviaCorreo($PDO, $idCliente, $costoProducto, $NumProductos, $idProduct
    <title>Comprobante de Pago - Isima</title> 
 </head> 
 <body> 
+<style>
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+thead > tr > td{
+font-weight:900;
+}
+
+</style>
 <h4>'.'Estimado(a) '.$nombreCliente.'.</h4> 
 <p /> 
 <h5>';
-    $cuerpoMensaje .= "Se le hace llegar este correo electrónico como confirmación de su compra de "
-        .$NumProductos." ".$nombreProducto." con un costo total de $".number_format(($costoProducto * $NumProductos), 2);
-    
-    $cuerpoMensaje.= '.</h5> 
-<br />
+    $cuerpoMensaje .= "Se le hace llegar este correo electrónico como confirmación de su compra </h5> ";
+
+    $cuerpoMensaje .= "<table style='width:90%; margin:auto'><thead><tr>"
+        ."<td style='width:10%'>Número Productos</td>"
+        ."<td style='width:70%'>Nombre del Producto</td>"
+        ."<td style='width:20%'>Costo</td></tr></thead><tbody>";
+
+    for($cont=0; $cont < count($idProducto); $cont++){
+        $cuerpoMensaje.="<tr>";
+        $cuerpoMensaje.="<td>".$NumProductos[$cont]."</td>";
+        $cuerpoMensaje.="<td>".$nombreProducto[$cont]."</td>";
+        $cuerpoMensaje.="<td>$".number_format(($costoProducto[$cont]), 2)."</td>";
+        $cuerpoMensaje.="</tr>";
+
+        $costoTotal += $costoProducto[$cont];
+    }
+
+    $cuerpoMensaje .= "<td></td><td style='font-weight:600;'>Costo Total</td>"
+        ."<td  style='font-weight:600;'>$".number_format(($costoTotal), 2)."</td>";
+
+    $cuerpoMensaje .= "</tbody></table>";
+
+
+    $cuerpoMensaje .='<br />
 </body> 
 </html>'; 
 
-    return EnviaMail($correoCliente, $nombreCliente, "Comprobante de pago", $cuerpoMensaje);
+    return EnviaMail($correoCliente, $nombreCliente, "Comprobante de pago", Reemplazar($cuerpoMensaje));
 }
 
 

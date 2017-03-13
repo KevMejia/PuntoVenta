@@ -13,25 +13,40 @@ $sqlSelectClientes = "SELECT IdCliente, NombreCliente FROM Clientes";
 $listaClientes = $PDO->query($sqlSelectClientes);   
 
 ?>
+<script>
+    var numProd = 1;
+    var copia;
+    $(document).ready(function () {
+        CompruebaProd();
+        copia = CopiaInicial();
+    });
+</script>
 
 <h1>Registrar una Venta</h1>
+<button type="button" class="btn btn-primary btn-lg" onclick="AgregaProducto();">
+    <span class="glyphicon glyphicon-plus"></span> Agregar Producto
+</button>
 
-<div class="form-group">
-    <label>Seleccionar Producto:</label>
-    <select class="form-control" id="idProducto">
-        <?php
-        foreach ($listaProductos as $filaProducto) {
-            echo "<option value='".$filaProducto[0]."'>";
-            echo Reemplazar($filaProducto[1]);
-            echo "</option>";
-        }  
-        ?>
-    </select>
+<p></p>
+<label id="lblProducto">Seleccionar Producto(s)</label>
+<div id="Prods" class="form-inline">
+    <div class="form-group" id="Productos">
+        <span onclick="EliminaProducto(this);" title="Eliminar este producto" class="iconoElimina glyphicon glyphicon-remove"></span>
+        <select class="form-control idProducto">
+            <?php
+            foreach ($listaProductos as $filaProducto) {
+                echo "<option value='".$filaProducto[0]."'>";
+                echo Reemplazar($filaProducto[1]);
+                echo "</option>";
+            }  
+            ?>
+        </select>
+        <p></p>
+        <input type="number" placeholder="N&uacute;mero de Productos" class="form-control NumProductos" min="1" />
+    </div>
 </div>
 
-<div class="form-group">
-    <input type="number" placeholder="N&uacute;mero de Productos" class="form-control" id="NumProductos" min="1" />
-</div>
+<p></p>
 
 <div class="form-group">
     <label>Selecciona al Cliente:</label>
@@ -46,8 +61,8 @@ $listaClientes = $PDO->query($sqlSelectClientes);
     </select>
 </div>
 
-<button class="btn btn-primary" onclick="RegistraVenta();">
-    <span class="glyphicon glyphicon-floppy-disk"></span>Registrar Venta
+<button class="btn btn-primary" onclick="RegistraVenta();" id="btnRegistraVenta">
+    <span class="glyphicon glyphicon-floppy-disk"></span> Registrar Venta
 </button>
 
 
@@ -58,7 +73,7 @@ $listaClientes = $PDO->query($sqlSelectClientes);
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button style="display:none" id="CierraVenta" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button style="display: none" id="CierraVenta" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" style="text-align: center" id="myModalLabel">Registrando Venta</h4>
