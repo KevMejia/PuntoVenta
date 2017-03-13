@@ -27,4 +27,11 @@ function ValidaUsuario($PDO, $user, $pass){
     return $existe;
 }
 
+function Reemplazar($str){
+    $search  = array('Á', 'É', 'Í', 'Ó', 'Ú', 'á', 'é', 'í', 'ó', 'ú', 'Ñ', 'ñ');
+    $replace = array('&Aacute;', '&Eacute;', '&Iacute;', '&Oacute;', '&Uacute;', 
+        '&aacute;', '&eacute;', '&iacute;', '&oacute;', '&uacute;', '&Ntilde;', '&ntilde;');
+    return str_replace($search, $replace, $str);
+}
+
 ?>

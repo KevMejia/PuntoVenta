@@ -13,7 +13,7 @@ function RegistrarUsuario() {
     var data = { usuario: nomUsuario, pass: passUsuario };
 
     $.ajax({
-        url: "/Usuario/RegistrarUsuario.php",
+        url: root + "Usuario/RegistrarUsuario.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -35,14 +35,14 @@ function IniciaSesion() {
     var data = { usuario: nomUsuario, pass: passUsuario };
 
     $.ajax({
-        url: "/Usuario/IniciaSesion.php",
+        url: root + "Usuario/IniciaSesion.php",
         data: data,
         type: "GET",
         success: function (data) {
             if (data.includes("ERROR"))
                 alert(data);
             else
-                location.reload();
+                window.location.replace(root);
         },
         error: function () {
             alert("No hay conexión con el servidor");
@@ -53,19 +53,19 @@ function IniciaSesion() {
 function CierraSesion() {
     if (confirm("¿De verdad desea cerrar sesión?")) {
         $.ajax({
-            url: "/Usuario/CierraSesion.php",
+            url: root + "Usuario/CierraSesion.php",
             type: "GET",
             success: function (data) {
                 if (data.includes("ERROR"))
                     alert(data);
                 else
-                    location.reload();
+                    window.location.replace(root);
             },
             error: function () {
                 alert("No hay conexión con el servidor");
             }
         });
-        window.location.replace("/");
+
     }
 
 }
@@ -93,7 +93,7 @@ function RegistrarCliente() {
     var data = { cliente: nomCliente, mail: mailCliente };
 
     $.ajax({
-        url: "/Clientes/RegistrarCliente.php",
+        url: root + "Clientes/RegistrarCliente.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -120,7 +120,7 @@ $(".iconoElimina").on('click', function () {
     if (confirm("¿Desea eliminar al cliente " + usuario + "?")) {
         var data = { id: id };
         $.ajax({
-            url: "/Clientes/EliminaCliente.php",
+            url: root + "Clientes/EliminaCliente.php",
             data: data,
             type: "GET",
             success: function (data) {
@@ -151,7 +151,7 @@ function RegistrarProveedor() {
     var data = { Proveedor: nomProveedor };
 
     $.ajax({
-        url: "/Proveedores/RegistrarProveedor.php",
+        url: root + "Proveedores/RegistrarProveedor.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -173,7 +173,7 @@ $(".iconoEliminaProveedor").on('click', function () {
     if (confirm("¿Desea eliminar al proveedor " + usuario + "?")) {
         var data = { id: id };
         $.ajax({
-            url: "/Proveedores/EliminaProveedor.php",
+            url: root + "Proveedores/EliminaProveedor.php",
             data: data,
             type: "GET",
             success: function (data) {
@@ -210,7 +210,7 @@ function RegistrarProducto() {
     var data = { Proveedor: nomProveedor, NombreProducto: nombreProducto, Costo: parseFloat(costo) };
 
     $.ajax({
-        url: "/Inventario/RegistrarProducto.php",
+        url: root + "Inventario/RegistrarProducto.php",
         data: data,
         type: "GET",
         success: function (data) {
@@ -232,7 +232,7 @@ $(".iconoEliminaProducto").on('click', function () {
     if (confirm("¿Desea eliminar el producto " + producto + "?")) {
         var data = { id: id };
         $.ajax({
-            url: "/Inventario/EliminaProducto.php",
+            url: root + "Inventario/EliminaProducto.php",
             data: data,
             type: "GET",
             success: function (data) {
@@ -269,7 +269,7 @@ function RegistraVenta() {
     $("#btnRegistra").click();
 
     $.ajax({
-        url: "/Ventas/RegistrarVenta.php",
+        url: root + "Ventas/RegistrarVenta.php",
         data: data,
         type: "GET",
         async: true,

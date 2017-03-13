@@ -1,7 +1,7 @@
 </div>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/PuntoVenta.js"></script>
+<script src=<?php echo $url; ?>js/jquery.min.js></script>
+<script src=<?php echo $url; ?>js/bootstrap.min.js></script>
+<script src=<?php echo $url; ?>js/PuntoVenta.js></script>
 
 <div class="modal fade" id="ModalRegistroUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

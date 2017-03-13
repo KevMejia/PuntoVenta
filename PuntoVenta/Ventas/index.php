@@ -1,6 +1,7 @@
 <?php
 include "../utilerias/encabezado.php"; 
 include "../utilerias/conexion.php";
+include "../utilerias/Utilerias.php";
 
 $con = new Conexion();
 $PDO = $con-> AbreConexion();    
@@ -21,7 +22,7 @@ $listaClientes = $PDO->query($sqlSelectClientes);
         <?php
         foreach ($listaProductos as $filaProducto) {
             echo "<option value='".$filaProducto[0]."'>";
-            echo $filaProducto[1];
+            echo Reemplazar($filaProducto[1]);
             echo "</option>";
         }  
         ?>
@@ -29,7 +30,7 @@ $listaClientes = $PDO->query($sqlSelectClientes);
 </div>
 
 <div class="form-group">
-    <input type="number" placeholder="Número de Productos" class="form-control" id="NumProductos" min="1" />
+    <input type="number" placeholder="N&uacute;mero de Productos" class="form-control" id="NumProductos" min="1" />
 </div>
 
 <div class="form-group">
@@ -38,7 +39,7 @@ $listaClientes = $PDO->query($sqlSelectClientes);
         <?php
         foreach ($listaClientes as $filaCliente) {
             echo "<option value='".$filaCliente[0]."'>";
-            echo $filaCliente[1];
+            echo Reemplazar($filaCliente[1]);
             echo "</option>";
         }  
         ?>
@@ -64,7 +65,7 @@ $listaClientes = $PDO->query($sqlSelectClientes);
             </div>
             <div class="modal-body">
                 <div style="text-align: center">
-                    <img src="/Imgs/Cargando.gif" />
+                    <img src=<?php echo $url; ?>Imgs/Cargando.gif />
                 </div>
             </div>
         </div>

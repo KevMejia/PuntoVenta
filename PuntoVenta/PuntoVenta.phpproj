@@ -46,8 +46,6 @@
     <Compile Include="utilerias\PHPMailer\class.smtp.php" />
     <Compile Include="utilerias\conexion.php" />
     <Compile Include="utilerias\encabezado.php" />
-    <Compile Include="utilerias\EnviarCorreo.php" />
-    <Compile Include="utilerias\finalizar_pedido.php" />
     <Compile Include="Clientes\RegistrarCliente.php" />
     <Compile Include="Usuario\CierraSesion.php" />
     <Compile Include="Usuario\IniciaSesion.php" />
