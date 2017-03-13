@@ -15,7 +15,7 @@ $listaProveedores = $PDO->query($sqlSelectProveedores);
 ?>
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAgrega">
-    <span class="glyphicon glyphicon-plus"></span>Agregar Producto
+    <span class="glyphicon glyphicon-plus"></span> Agregar Producto
 </button>
 
 <div class="modal fade" id="ModalAgrega" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
